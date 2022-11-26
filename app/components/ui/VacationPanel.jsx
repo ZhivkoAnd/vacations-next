@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const VacationPanel = ({ item }) => {
   return (
-    <div className="vacation-panel" key={item.sys.id}>
+    <div className="vacation-panel">
       <Image
         src={`https:${item.fields.thumbnail.fields.file.url}`}
         width={item.fields.thumbnail.fields.file.details.image.width}

@@ -6,6 +6,7 @@ import "../styles/Navigation.scss";
 import "../styles/Footer.scss";
 import "../styles/VacationPanel.scss";
 
+import Providers from "./Providers";
 import Navigation from "./components/ui/Navigation";
 import Footer from "./components/ui/Footer";
 
@@ -26,11 +27,13 @@ export default function RootLayout({ children }) {
     <html>
       <head />
       <body className={`App ${colorMode}`}>
-        <Navigation lightMode={lightMode} darkMode={darkMode} />
-        <div className="page-content">
-          <div className="container">{children}</div>
-        </div>
-        <Footer />
+        <Providers>
+          <Navigation lightMode={lightMode} darkMode={darkMode} />
+          <div className="page-content">
+            <div className="container">{children}</div>
+          </div>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

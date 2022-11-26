@@ -23,7 +23,7 @@ const Vacations = async () => {
       <h1 className="title-main">Vacations</h1>
       <div className="vacation-panels">
         {vacations?.items.map((vacation) => (
-          <VacationPanel item={vacation} />
+          <VacationPanel item={vacation} key={vacation.sys.id} />
         ))}
       </div>
     </>
