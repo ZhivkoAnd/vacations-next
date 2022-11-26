@@ -1,11 +1,13 @@
 "use client";
 
+import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.scss";
 import "../styles/Navigation.scss";
 import "../styles/Footer.scss";
+import "../styles/VacationPanel.scss";
 
-import Navigation from "./Navigation";
-import Footer from "./Footer";
+import Navigation from "./components/ui/Navigation";
+import Footer from "./components/ui/Footer";
 
 import { useState } from "react";
 
@@ -25,7 +27,9 @@ export default function RootLayout({ children }) {
       <head />
       <body className={`App ${colorMode}`}>
         <Navigation lightMode={lightMode} darkMode={darkMode} />
-        {children}
+        <div className="page-content">
+          <div className="container">{children}</div>
+        </div>
         <Footer />
       </body>
     </html>
