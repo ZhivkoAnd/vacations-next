@@ -12,6 +12,8 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useState } from "react";
 import Link from "next/link";
 import NavigationInput from "./NavigationInput";
@@ -91,8 +93,8 @@ function ResponsiveAppBar({ lightMode, darkMode }) {
             ))}
           </Box>
           <div className="navbar__colorThemeIcons">
-            <MenuIcon onClick={lightMode} className="sun" />
-            <MenuIcon onClick={darkMode} className="moon" />
+            <LightModeIcon onClick={lightMode} className="sun" />
+            <DarkModeIcon onClick={darkMode} className="moon" />
           </div>
           <Box sx={{ flexGrow: 0 }}>
             <NavigationInput />
