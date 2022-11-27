@@ -4,18 +4,18 @@ import "../styles/Navigation.scss";
 import "../styles/Footer.scss";
 import "../styles/VacationPanel.scss";
 import Wrap from "./Wrap";
-import { ReactQueryWrapper } from "./ReactQueryWrapper";
+import { Providers } from "./Providers";
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <head />
       <body>
-        <Wrap>
-          <ReactQueryWrapper>
+        <Providers>
+          <Wrap>
             <div className="container">{children}</div>
-          </ReactQueryWrapper>
-        </Wrap>
+          </Wrap>
+        </Providers>
       </body>
     </html>
   );
