@@ -2,8 +2,8 @@ import { createClient } from "contentful";
 
 export const fetchVacationsServer = async () => {
   const client = createClient({
-    space: "6yu8mnoa9wdc",
-    accessToken: "qSxY7HTMgBYn3WQP4bL5svs27iUAQZEM-rauSvhvixg",
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
   const response = await client.getEntries(

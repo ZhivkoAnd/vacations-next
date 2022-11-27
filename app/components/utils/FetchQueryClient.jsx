@@ -3,8 +3,8 @@ import { useQuery } from "react-query";
 
 const fetchQuery = async () => {
   const client = createClient({
-    space: "6yu8mnoa9wdc",
-    accessToken: "qSxY7HTMgBYn3WQP4bL5svs27iUAQZEM-rauSvhvixg",
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
   const responce = await client.getEntries({ content_type: "recipe" });
