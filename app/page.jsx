@@ -1,9 +1,9 @@
 import React from "react";
 import VacationPanel from "./components/ui/VacationPanel";
-import { fetchVacationsClient } from "./components/utils/FetchQueryClient";
+import { fetchVacationsServer } from "./components/utils/FetchQueryServer";
 
 const Vacations = async () => {
-  const vacations = await fetchVacationsClient();
+  const vacations = await fetchVacationsServer();
 
   return (
     <>

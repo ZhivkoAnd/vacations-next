@@ -1,14 +1,16 @@
 import { createClient } from "contentful";
+import { useQuery } from "react-query";
 
-export const fetchVacationsClient = async () => {
+const fetchQuery = async () => {
   const client = createClient({
     space: "6yu8mnoa9wdc",
     accessToken: "qSxY7HTMgBYn3WQP4bL5svs27iUAQZEM-rauSvhvixg",
   });
 
-  const response = await client.getEntries(
-    { content_type: "recipe" },
-    { next: { revalidate: 1 } }
-  );
-  return response;
+  const responce = await client.getEntries({ content_type: "recipe" });
+  return responce;
+};
+
+export const fetchVacationsClient = () => {
+  return useQuery(["vacations"], fetchQuery);
 };
