@@ -15,7 +15,7 @@ const VacationPanel = ({ item }) => {
       <h2 className="vacation-panel__title"> {item.fields.title}</h2>
       <h3 className="vacation-panel__date"> {item.fields.date}</h3>
       <Link
-        href={`/vacations/${item.fields.slug}`}
+        href={`/${item.fields.slug}`}
         className="btn btn-primary vacation-panel__button"
       >
         Gallery
