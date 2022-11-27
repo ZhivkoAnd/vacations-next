@@ -27,3 +27,11 @@ const Gallery = async ({ params: { city } }) => {
 };
 
 export default Gallery;
+
+export async function generateStaticParams() {
+  const vacations = await fetchVacationsServer();
+
+  return vacations.items.map((item) => ({
+    city: item.fields.slug,
+  }));
+}
