@@ -1,10 +1,12 @@
+"use client";
+
 import { createClient } from "contentful";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const fetchQuery = async () => {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+    space: "6yu8mnoa9wdc",
+    accessToken: "qSxY7HTMgBYn3WQP4bL5svs27iUAQZEM-rauSvhvixg",
   });
 
   const responce = await client.getEntries({ content_type: "recipe" });
