@@ -131,6 +131,15 @@ h2 {
   /* justify-content: space-around; */
 }
 
+.material-input::before {
+  color: white !important;
+}
+
+.material-box-dropdown {
+  border-color: white !important;
+  margin-right: 2rem;
+}
+
 .vacation-panels-grid {
   display: flex;
   gap: 1.5rem;

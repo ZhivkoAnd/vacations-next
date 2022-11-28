@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.scss";
 import "../styles/Navigation.scss";
+import "../styles/ActionBar.scss";
 import "../styles/Footer.scss";
 import "../styles/VacationPanel.scss";
 import Wrap from "./Wrap";

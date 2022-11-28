@@ -3,6 +3,7 @@
 import VacationPanel from "./components/ui/VacationPanel";
 import { fetchVacationsClient } from "./components/utils/FetchQueryClient";
 import { useState, useEffect } from "react";
+import ActionBar from "./components/ui/ActionBar";
 
 const Vacations = () => {
   const { data, isLoading } = fetchVacationsClient();
@@ -31,8 +32,7 @@ const Vacations = () => {
 
   return (
     <>
-      <h1 className="title-main">Vacations</h1>
-      <input value={query} onChange={(e) => setQuery(e.target.value)}></input>
+      <ActionBar query={query} setQuery={setQuery} />
       {noVacationFound ? <div>NOTHING HERE</div> : ""}
       <div className="vacation-panels">
         {filteredCities?.map((vacation) => (

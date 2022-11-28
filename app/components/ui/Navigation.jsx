@@ -16,7 +16,6 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useState } from "react";
 import Link from "next/link";
-import NavigationInput from "./NavigationInput";
 
 const pages = [
   {
@@ -96,9 +95,6 @@ function ResponsiveAppBar({ lightMode, darkMode }) {
             <LightModeIcon onClick={lightMode} className="sun" />
             <DarkModeIcon onClick={darkMode} className="moon" />
           </div>
-          <Box sx={{ flexGrow: 0 }}>
-            <NavigationInput />
-          </Box>
         </Toolbar>
       </Container>
     </AppBar>
