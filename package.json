@@ -22,9 +22,11 @@
     "eslint-config-next": "13.0.4",
     "framer-motion": "^7.6.7",
     "next": "13.0.5",
+    "node": "^19.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-image-gallery": "1.2.11",
-    "sass": "1.56.1"
+    "react-image-gallery": "^1.2.11",
+    "sass": "1.56.1",
+    "stable": "^0.1.8"
   }
 }

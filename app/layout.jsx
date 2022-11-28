@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
+import "../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 import "../styles/globals.scss";
 import "../styles/Navigation.scss";
 import "../styles/ActionBar.scss";
