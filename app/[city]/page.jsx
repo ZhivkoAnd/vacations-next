@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { fetchVacationsServer } from "../components/utils/FetchQueryServer";
-import ImageGallery from "./ImageGallery";
 
 const Gallery = async ({ params: { city } }) => {
   const vacations = await fetchVacationsServer();
@@ -10,7 +9,6 @@ const Gallery = async ({ params: { city } }) => {
   return (
     <>
       <h1 className="title-main">{vacation.fields.title}</h1>
-      <ImageGallery />
       <div className="vacation-panels-grid">
         {vacation.fields.gallery.map((image, index) => {
           return (
