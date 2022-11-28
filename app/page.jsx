@@ -16,23 +16,26 @@ const Vacations = () => {
     city.fields.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  const ascending = data?.items
-    .map((item) => item.fields.date)
-    .sort((a, b) => new Date(a) - new Date(b));
+  const newData = data?.items.map((obj) => {
+    return { ...obj.fields, date: new Date(obj.fields.date) };
+  });
 
-  const descending = data?.items
-    .map((item) => item.fields.date)
-    .sort((a, b) => new Date(b) - new Date(a));
+  console.log(newData);
+  // console.log(newData?.map((item) => item));
 
-  console.log(ascending);
-  console.log(descending);
+  // const ascending = newData?.sort(
+  //   (a, b) => Number(a.fields.date) - Number(b.fields.date)
+  // );
+  // const descending = newData?.sort(
+  //   (a, b) => Number(b.fields.date) - Number(a.fields.date)
+  // );
 
   const sortAscending = () => {
-    setFilteredCities(ascending);
+    console.log(filteredCities);
   };
 
   const sortDescending = () => {
-    setFilteredCities(descending);
+    console.log(filteredCities);
   };
 
   useEffect(() => {
