@@ -90,11 +90,11 @@ function ResponsiveAppBar({ lightMode, darkMode }) {
                 </Button>
               </Link>
             ))}
+            <div className="navbar__colorThemeIcons">
+              <LightModeIcon onClick={lightMode} className="sun" />
+              <DarkModeIcon onClick={darkMode} className="moon" />
+            </div>
           </Box>
-          <div className="navbar__colorThemeIcons">
-            <LightModeIcon onClick={lightMode} className="sun" />
-            <DarkModeIcon onClick={darkMode} className="moon" />
-          </div>
         </Toolbar>
       </Container>
     </AppBar>
