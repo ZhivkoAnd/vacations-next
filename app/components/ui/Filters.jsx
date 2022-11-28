@@ -5,13 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
+export default function BasicSelect({ sortAscending, sortDescending }) {
   return (
     <Box sx={{ minWidth: 120 }} className="material-box-dropdown">
       <FormControl fullWidth>
@@ -21,13 +15,11 @@ export default function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
           label="filter"
-          onChange={handleChange}
           sx={{ color: "white" }}
         >
-          <MenuItem value={10}>Date ascending</MenuItem>
-          <MenuItem value={20}>Date descending</MenuItem>
+          <MenuItem onClick={sortAscending}>Date ascending</MenuItem>
+          <MenuItem onClick={sortDescending}>Date descending</MenuItem>
         </Select>
       </FormControl>
     </Box>

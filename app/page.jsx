@@ -16,6 +16,25 @@ const Vacations = () => {
     city.fields.title.toLowerCase().includes(query.toLowerCase())
   );
 
+  const ascending = data?.items
+    .map((item) => item.fields.date)
+    .sort((a, b) => new Date(a) - new Date(b));
+
+  const descending = data?.items
+    .map((item) => item.fields.date)
+    .sort((a, b) => new Date(b) - new Date(a));
+
+  console.log(ascending);
+  console.log(descending);
+
+  const sortAscending = () => {
+    setFilteredCities(ascending);
+  };
+
+  const sortDescending = () => {
+    setFilteredCities(descending);
+  };
+
   useEffect(() => {
     if (inputCity && inputCity.length) {
       setFilteredCities(inputCity);
@@ -32,7 +51,12 @@ const Vacations = () => {
 
   return (
     <>
-      <ActionBar query={query} setQuery={setQuery} />
+      <ActionBar
+        query={query}
+        setQuery={setQuery}
+        sortAscending={sortAscending}
+        sortDescending={sortDescending}
+      />
       {noVacationFound ? <div>NOTHING HERE</div> : ""}
       <div className="vacation-panels">
         {filteredCities?.map((vacation) => (
