@@ -10,6 +10,7 @@ const Vacations = () => {
 
   const [query, setQuery] = useState("");
   const [filteredCities, setFilteredCities] = useState(data);
+  const [sortedCities, setSortedCities] = useState(data);
   const [noVacationFound, setNoVacationFound] = useState(false);
 
   const inputCity = data?.items.filter((city) =>
@@ -35,11 +36,11 @@ const Vacations = () => {
   }
 
   const sortAscending = () => {
-    setFilteredCities(ascending);
+    setFilteredCities([...inputCity], ascending);
   };
 
   const sortDescending = () => {
-    setFilteredCities(descending);
+    setFilteredCities([...inputCity], descending);
   };
 
   useEffect(() => {
@@ -60,6 +61,8 @@ const Vacations = () => {
   if (isLoading) {
     return <div>isLoading</div>;
   }
+
+  console.log(filteredCities)
 
   return (
     <>
