@@ -10,7 +10,6 @@ const Vacations = () => {
 
   const [query, setQuery] = useState("");
   const [filteredCities, setFilteredCities] = useState(data);
-  const [sortedCities, setSortedCities] = useState(data);
   const [noVacationFound, setNoVacationFound] = useState(false);
 
   const inputCity = data?.items.filter((city) =>
@@ -21,8 +20,9 @@ const Vacations = () => {
     return { ...obj, fields: {...obj.fields, date: new Date(obj.fields.date)}  };
   });
 
-  let ascending = '';
-  let descending = '';
+  const inputCity2 = newData?.filter((city) =>
+  city.fields.title.toLowerCase().includes(query.toLowerCase())
+);
 
   const setAscending =(arr)=> {
     return [...arr].sort((a,b)=> {
@@ -36,28 +36,20 @@ const Vacations = () => {
     })
   }
 
-
-  if ( newData && newData.length) {
-
-  ascending = [...newData].sort(
-    (a, b) => Number(a.fields.date) - Number(b.fields.date)
-   );
-
-  descending = [...newData].sort(
-   (a, b) => Number(b.fields.date) - Number(a.fields.date)
-   );
-   
-  console.log(setAscending(newData))
-  console.log(setDescending(newData))
-  }
-
-
   const sortAscending = () => {
-    setFilteredCities(ascending);
+    if (inputCity && inputCity.length) {
+      setFilteredCities(setAscending(inputCity2));
+    } else {
+      setFilteredCities(inputCity2)
+    }
   };
 
   const sortDescending = () => {
-    setFilteredCities(descending);
+    if (inputCity && inputCity.length) {
+      setFilteredCities(setDescending(inputCity2));
+    } else {
+      setFilteredCities(inputCity2)
+    }
   };
 
   useEffect(() => {
@@ -78,8 +70,6 @@ const Vacations = () => {
   if (isLoading) {
     return <div>isLoading</div>;
   }
-
-  console.log(filteredCities)
 
   return (
     <>
