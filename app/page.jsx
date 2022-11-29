@@ -20,21 +20,26 @@ const Vacations = () => {
     return { ...obj, fields: {...obj.fields, date: new Date(obj.fields.date)}  };
   });
 
-  const ascending = newData?.sort(
-    (a, b) => Number(a.fields.date) - Number(b.fields.date)
-  );
+  let ascending = '';
+  let descending = '';
 
-  console.log(ascending);
-  // const descending = newData?.sort(
-  //   (a, b) => Number(b.fields.date) - Number(a.fields.date)
-  // );
+  if ( newData && newData.length) {
+
+  ascending = [...newData].sort(
+    (a, b) => Number(a.fields.date) - Number(b.fields.date)
+   );
+
+  descending = [...newData].sort(
+   (a, b) => Number(b.fields.date) - Number(a.fields.date)
+   );
+  }
 
   const sortAscending = () => {
-    console.log(filteredCities);
+    setFilteredCities(ascending);
   };
 
   const sortDescending = () => {
-    console.log(filteredCities);
+    setFilteredCities(descending);
   };
 
   useEffect(() => {
@@ -45,6 +50,11 @@ const Vacations = () => {
       setFilteredCities([]);
       setNoVacationFound(true);
     }
+
+    if (inputCity && inputCity.length) {
+      setFilteredCities(inputCity);
+      setNoVacationFound(false);
+    } 
   }, [query, data]);
 
   if (isLoading) {

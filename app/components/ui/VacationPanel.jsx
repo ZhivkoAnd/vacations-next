@@ -13,7 +13,7 @@ const VacationPanel = ({ item }) => {
         alt="city thumbnail"
       />
       <h2 className="vacation-panel__title"> {item.fields.title}</h2>
-      <h3 className="vacation-panel__date"> {item.fields.date}</h3>
+      <h3 className="vacation-panel__date"> {item.fields.date.toString().slice(0,15)}</h3>
       <Link
         href={`/${item.fields.slug}`}
         className="btn btn-primary vacation-panel__button"
