@@ -4,16 +4,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import {useState} from 'react'
+import { useState } from "react";
 
-
-export default function BasicSelect({ sortAscending, sortDescending }) {
-
-  const [sort, setSort] = useState('')
+export default function BasicSelect({
+  setFilterDateAscending,
+  setFilterDateDescending,
+}) {
+  const [sort, setSort] = useState("");
 
   const handleChange = (e) => {
-    setSort(e.target.value)
-  }
+    setSort(e.target.value);
+  };
 
   return (
     <Box sx={{ minWidth: 120 }} className="material-box-dropdown">
@@ -29,8 +30,12 @@ export default function BasicSelect({ sortAscending, sortDescending }) {
           onChange={handleChange}
           value={sort}
         >
-          <MenuItem value='ascending' onClick={sortAscending}>Date ascending</MenuItem>
-          <MenuItem value='descending'onClick={sortDescending}>Date descending</MenuItem>
+          <MenuItem value="ascending" onClick={setFilterDateAscending}>
+            Date ascending
+          </MenuItem>
+          <MenuItem value="descending" onClick={setFilterDateDescending}>
+            Date descending
+          </MenuItem>
         </Select>
       </FormControl>
     </Box>

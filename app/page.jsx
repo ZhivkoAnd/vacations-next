@@ -4,8 +4,8 @@ import VacationPanel from "./components/ui/VacationPanel";
 import { fetchVacationsClient } from "./components/utils/FetchQueryClient";
 import { useState, useEffect } from "react";
 import {
-  setFilterDateAscending,
-  setFilterDateDescending,
+  filterDateAscending,
+  filterDateDescending,
 } from "./components/utils/FilterFunctions";
 import ActionBar from "./components/ui/ActionBar";
 
@@ -27,17 +27,17 @@ const Vacations = () => {
     city.fields.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  const sortAscending = () => {
+  const setFilterDateAscending = () => {
     if (inputQuery && inputQuery.length) {
-      setFilteredCities(setFilterDateAscending(inputQuery));
+      setFilteredCities(filterDateAscending(inputQuery));
     } else {
       setFilteredCities(inputQuery);
     }
   };
 
-  const sortDescending = () => {
+  const setFilterDateDescending = () => {
     if (inputQuery && inputQuery.length) {
-      setFilteredCities(setFilterDateDescending(inputQuery));
+      setFilteredCities(filterDateDescending(inputQuery));
     } else {
       setFilteredCities(inputQuery);
     }
@@ -62,8 +62,8 @@ const Vacations = () => {
       <ActionBar
         query={query}
         setQuery={setQuery}
-        sortAscending={sortAscending}
-        sortDescending={sortDescending}
+        setFilterDateAscending={setFilterDateAscending}
+        setFilterDateDescending={setFilterDateDescending}
       />
       {noVacationFound ? <div>NOTHING HERE</div> : ""}
       <div className="vacation-panels">
