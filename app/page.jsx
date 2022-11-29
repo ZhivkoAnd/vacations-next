@@ -23,29 +23,29 @@ const Vacations = () => {
     };
   });
 
-  const inputQuery = modifiedDateData?.filter((city) =>
+  const inputData = modifiedDateData?.filter((city) =>
     city.fields.title.toLowerCase().includes(query.toLowerCase())
   );
 
   const setFilterDateAscending = () => {
-    if (inputQuery && inputQuery.length) {
-      setFilteredCities(filterDateAscending(inputQuery));
+    if (inputData && inputData.length) {
+      setFilteredCities(filterDateAscending(inputData));
     } else {
-      setFilteredCities(inputQuery);
+      setFilteredCities(inputData);
     }
   };
 
   const setFilterDateDescending = () => {
-    if (inputQuery && inputQuery.length) {
-      setFilteredCities(filterDateDescending(inputQuery));
+    if (inputData && inputData.length) {
+      setFilteredCities(filterDateDescending(inputData));
     } else {
-      setFilteredCities(inputQuery);
+      setFilteredCities(inputData);
     }
   };
 
   useEffect(() => {
-    if (inputQuery && inputQuery.length) {
-      setFilteredCities(inputQuery);
+    if (inputData && inputData.length) {
+      setFilteredCities(inputData);
       setNoVacationFound(false);
     } else {
       setFilteredCities([]);
