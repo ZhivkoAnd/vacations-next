@@ -17,15 +17,14 @@ const Vacations = () => {
   );
 
   const newData = data?.items.map((obj) => {
-    return { ...obj.fields, date: new Date(obj.fields.date) };
+    return { ...obj, fields: {...obj.fields, date: new Date(obj.fields.date)}  };
   });
 
-  console.log(newData);
-  // console.log(newData?.map((item) => item));
+  const ascending = newData?.sort(
+    (a, b) => Number(a.fields.date) - Number(b.fields.date)
+  );
 
-  // const ascending = newData?.sort(
-  //   (a, b) => Number(a.fields.date) - Number(b.fields.date)
-  // );
+  console.log(ascending);
   // const descending = newData?.sort(
   //   (a, b) => Number(b.fields.date) - Number(a.fields.date)
   // );
