@@ -37,7 +37,6 @@ const Vacations = () => {
   }
 
 
-
   if ( newData && newData.length) {
 
   ascending = [...newData].sort(
@@ -49,16 +48,16 @@ const Vacations = () => {
    );
    
   console.log(setAscending(newData))
+  console.log(setDescending(newData))
   }
 
 
-
   const sortAscending = () => {
-    setFilteredCities([...inputCity], ascending);
+    setFilteredCities(ascending);
   };
 
   const sortDescending = () => {
-    setFilteredCities([...inputCity], descending);
+    setFilteredCities(descending);
   };
 
   useEffect(() => {
