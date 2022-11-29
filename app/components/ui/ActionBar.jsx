@@ -3,8 +3,8 @@ import Search from "./Search";
 import Filters from "./Filters";
 
 const ActionBar = ({
-  query,
-  setQuery,
+  inputQuery,
+  setInputQuery,
   setFilterDateAscending,
   setFilterDateDescending,
 }) => {
@@ -14,7 +14,7 @@ const ActionBar = ({
         setFilterDateAscending={setFilterDateAscending}
         setFilterDateDescending={setFilterDateDescending}
       />
-      <Search query={query} setQuery={setQuery} />
+      <Search inputQuery={inputQuery} setInputQuery={setInputQuery} />
     </div>
   );
 };

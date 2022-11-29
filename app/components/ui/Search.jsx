@@ -4,7 +4,7 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
-export default function InputWithIcon({ query, setQuery }) {
+export default function InputWithIcon({ inputQuery, setInputQuery }) {
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
       <Input
@@ -17,8 +17,8 @@ export default function InputWithIcon({ query, setQuery }) {
         }
         placeholder="Search vacation…"
         inputProps={{ "aria-label": "search" }}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={inputQuery}
+        onChange={(e) => setInputQuery(e.target.value)}
         className="material-input"
       />
     </Box>

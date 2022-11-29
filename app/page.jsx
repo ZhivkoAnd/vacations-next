@@ -12,7 +12,7 @@ import ActionBar from "./components/ui/ActionBar";
 const Vacations = () => {
   const { data, isLoading } = fetchVacationsClient();
 
-  const [query, setQuery] = useState("");
+  const [inputQuery, setInputQuery] = useState("");
   const [filteredCities, setFilteredCities] = useState(data);
   const [noVacationFound, setNoVacationFound] = useState(false);
 
@@ -24,7 +24,7 @@ const Vacations = () => {
   });
 
   const inputData = modifiedDateData?.filter((city) =>
-    city.fields.title.toLowerCase().includes(query.toLowerCase())
+    city.fields.title.toLowerCase().includes(inputQuery.toLowerCase())
   );
 
   const setFilterDateAscending = () => {
@@ -51,7 +51,7 @@ const Vacations = () => {
       setFilteredCities([]);
       setNoVacationFound(true);
     }
-  }, [query, data]);
+  }, [inputQuery, data]);
 
   if (isLoading) {
     return <div>isLoading</div>;
@@ -60,8 +60,8 @@ const Vacations = () => {
   return (
     <>
       <ActionBar
-        query={query}
-        setQuery={setQuery}
+        inputQuery={inputQuery}
+        setInputQuery={setInputQuery}
         setFilterDateAscending={setFilterDateAscending}
         setFilterDateDescending={setFilterDateDescending}
       />
