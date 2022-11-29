@@ -24,6 +24,20 @@ const Vacations = () => {
   let ascending = '';
   let descending = '';
 
+  const setAscending =(arr)=> {
+    return [...arr].sort((a,b)=> {
+      return Number(b.fields.date) - Number(a.fields.date)
+    })
+  }
+
+  const setDescending =(arr)=> {
+    return [...arr].sort((a,b)=> {
+      return Number(a.fields.date) - Number(b.fields.date)
+    })
+  }
+
+
+
   if ( newData && newData.length) {
 
   ascending = [...newData].sort(
@@ -33,7 +47,11 @@ const Vacations = () => {
   descending = [...newData].sort(
    (a, b) => Number(b.fields.date) - Number(a.fields.date)
    );
+   
+  console.log(setAscending(newData))
   }
+
+
 
   const sortAscending = () => {
     setFilteredCities([...inputCity], ascending);
