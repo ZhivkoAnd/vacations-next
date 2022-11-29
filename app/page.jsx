@@ -3,6 +3,10 @@
 import VacationPanel from "./components/ui/VacationPanel";
 import { fetchVacationsClient } from "./components/utils/FetchQueryClient";
 import { useState, useEffect } from "react";
+import {
+  setFilterDateAscending,
+  setFilterDateDescending,
+} from "./components/utils/FilterFunctions";
 import ActionBar from "./components/ui/ActionBar";
 
 const Vacations = () => {
@@ -23,21 +27,9 @@ const Vacations = () => {
     city.fields.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  const setAscending = (arr) => {
-    return [...arr].sort((a, b) => {
-      return Number(b.fields.date) - Number(a.fields.date);
-    });
-  };
-
-  const setDescending = (arr) => {
-    return [...arr].sort((a, b) => {
-      return Number(a.fields.date) - Number(b.fields.date);
-    });
-  };
-
   const sortAscending = () => {
     if (inputQuery && inputQuery.length) {
-      setFilteredCities(setAscending(inputQuery));
+      setFilteredCities(setFilterDateAscending(inputQuery));
     } else {
       setFilteredCities(inputQuery);
     }
@@ -45,7 +37,7 @@ const Vacations = () => {
 
   const sortDescending = () => {
     if (inputQuery && inputQuery.length) {
-      setFilteredCities(setDescending(inputQuery));
+      setFilteredCities(setFilterDateDescending(inputQuery));
     } else {
       setFilteredCities(inputQuery);
     }
