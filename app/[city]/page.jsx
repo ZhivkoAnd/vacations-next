@@ -1,15 +1,24 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { fetchVacationsServer } from "../components/utils/FetchQueryServer";
+import ImagesGallery from "./ImagesGallery";
 
 const Gallery = async ({ params: { city } }) => {
   const vacations = await fetchVacationsServer();
   const vacation = vacations.items.find((item) => item.fields.slug === city);
 
+  const images = vacation.fields.gallery.map((image) => {
+    return {
+      original: `https:${image.fields.file.url}`,
+      thumbnail: `https:${image.fields.file.url}`,
+    };
+  });
+
   return (
     <>
       <h1 className="title-main">{vacation.fields.title}</h1>
-      <div className="vacation-panels-grid">
+      <ImagesGallery images={images} />
+      {/* <div className="vacation-panels-grid">
         {vacation.fields.gallery.map((image, index) => {
           return (
             <Image
@@ -21,7 +30,7 @@ const Gallery = async ({ params: { city } }) => {
             />
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 };

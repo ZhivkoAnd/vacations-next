@@ -4,6 +4,7 @@ import "../styles/Navigation.scss";
 import "../styles/ActionBar.scss";
 import "../styles/Footer.scss";
 import "../styles/VacationPanel.scss";
+import "../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 import Wrap from "./Wrap";
 import { Providers } from "./Providers";
 

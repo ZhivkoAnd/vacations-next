@@ -66,11 +66,15 @@ const Vacations = () => {
         setFilterDateDescending={setFilterDateDescending}
       />
       {noVacationFound ? <div>NOTHING HERE</div> : ""}
-      <div className="vacation-panels">
-        {filteredCities?.map((vacation) => (
-          <VacationPanel item={vacation} key={vacation.sys.id} />
-        ))}
-      </div>
+      {filteredCities.length ? (
+        <div className="vacation-panels">
+          {filteredCities?.map((vacation) => (
+            <VacationPanel item={vacation} key={vacation.sys.id} />
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };
