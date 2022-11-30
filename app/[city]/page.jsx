@@ -17,7 +17,9 @@ const Gallery = async ({ params: { city } }) => {
   return (
     <>
       <h1 className="title-main">{vacation.fields.title}</h1>
-      <ImagesGallery images={images} />
+      <div className="vacation-panels">
+        <ImagesGallery images={images} />
+      </div>
       {/* <div className="vacation-panels-grid">
         {vacation.fields.gallery.map((image, index) => {
           return (
