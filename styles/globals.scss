@@ -131,7 +131,8 @@ h2 {
 }
 
 .material-input::before {
-  color: white !important;
+  color: white;
+  border-bottom: 1px solid rgb(255 255 255);
 }
 
 .material-box-dropdown {
